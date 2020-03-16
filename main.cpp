@@ -9,6 +9,8 @@
 static float up_vector[3] = {0.0, 0.0, 1.0};
 static float new_up[3];
 static double dist = sqrt(1 / 5.0);
+static void help();
+
 
 static void key(unsigned char key, int x, int y)
 {
@@ -91,15 +93,58 @@ static void key(unsigned char key, int x, int y)
         case '+':
             //Zoom in
             glScalef(1.5, 1.5, 1.5);
+            //glutPostRedisplay();
             break;
+
         case '-':
             //Zoom out
             glScalef(0.5, 0.5, 0.5);
+            //glutPostRedisplay();
+            break;
+        case 'h':
+            //Zoom out
+            help();
+            //glutPostRedisplay();
             break;
 
     }
+    /*
+    if (key =='+')
+        glScaled(1.5, 1.5, 1.5);
+    else if (key =='-')
+        glScaled(0.5, 0.5, 0.5);
+    */
     glutPostRedisplay();
 }
+
+static void help()
+{
+    const unsigned char kata[] = "HELP";
+    int w;
+    w = glutBitmapLength(GLUT_BITMAP_8_BY_13, kata);
+
+    glRasterPos2f(0., 0.);
+
+    float x = .5;
+    glRasterPos2f(x - (float) w / 2, 0.);
+    const char* kata2 = "HELP";
+
+    glColor3ub(1., 0., 0.);
+
+    size_t len = strlen(kata2);
+    int i;
+    for (i = 0; i < len; i++)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_8_BY_13, kata[i]);
+    }
+
+
+
+
+
+
+}
+
 
 int main(int argc, char *argv[])
 {
