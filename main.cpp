@@ -122,26 +122,19 @@ static void key(unsigned char key, int x, int y)
 
 static void help()
 {
-    const unsigned char kata[] = "HELP";
-    int w;
-    w = glutBitmapLength(GLUT_BITMAP_8_BY_13, kata);
-
-    glRasterPos2f(0., 0.);
-
-    float x = .5;
-    glRasterPos2f(x - (float) w / 2, 0.);
-    const char* kata2 = "HELP";
-
-    glColor3ub(1., 0., 0.);
-
-    size_t len = strlen(kata2);
-    int i;
-    for (i = 0; i < len; i++)
-    {
-        glutBitmapCharacter(GLUT_BITMAP_8_BY_13, kata[i]);
-    }
-
-
+    std::cout<<"HELP"<<std::endl;
+    std::cout<<"COMMANDS TO USE"<<std::endl;
+    std::cout<<"q\t: Quit the program"<<std::endl;
+    std::cout<<"x\t: Rotate camera around model (x direction)"<<std::endl;
+    std::cout<<"y\t: Rotate camera around model (y direction)"<<std::endl;
+    std::cout<<"z\t: Rotate camera around model (z direction)"<<std::endl;
+    std::cout<<"r\t: Reset"<<std::endl;
+    std::cout<<"1\t: Rotate up vector around x axis (10)"<<std::endl;
+    std::cout<<"2\t: Rotate up vector around y axis (10)"<<std::endl;
+    std::cout<<"3\t: Rotate up vector around z axis (10)"<<std::endl;
+    std::cout<<"+\t: Zoom in"<<std::endl;
+    std::cout<<"-\t: Zoom out"<<std::endl;
+    std::cout<<"h\t: Open help"<<std::endl;
 
 
 
