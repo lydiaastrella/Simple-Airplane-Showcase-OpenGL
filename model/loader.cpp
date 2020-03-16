@@ -5,6 +5,24 @@
 #include <fstream>
 #include <stdlib.h>
 
+void drawCartesianLine() {
+    glBegin(GL_LINES);
+
+    glColor3d(1.0, 0.0, 0.0);
+    glVertex3d(0.0, 0.0, 0.0);
+    glVertex3d(1.0, 0.0, 0.0);
+
+    glColor3d(0.0, 1.0, 0.0);
+    glVertex3d(0.0, 0.0, 0.0);
+    glVertex3d(0.0, 1.0, 0.0);
+
+    glColor3d(0.0, 0.0, 1.0);
+    glVertex3d(0.0, 0.0, 0.0);
+    glVertex3d(0.0, 0.0, 1.0);
+
+    glEnd();
+}
+
 void loadFromFile(void) {
     std::ifstream definitionFile("definition/definition.txt");
     if (definitionFile.is_open()) {
@@ -24,12 +42,20 @@ void loadFromFile(void) {
                     } else {
                         float x, y, z;
                         sscanf(str.c_str(), "%f %f %f", &x, &y, &z);
-                        glVertex3f(x, y, z);
+                        glVertex3f(x/20, y/20, z/20);
                     }
                 }
             }
         }
         definitionFile.close();
-        glFlush();
     }
+}
+
+void renderPlane() {
+    //drawCartesianLine();
+    glPushMatrix();
+    glTranslated(0.5, 0.5, 0.5);
+    loadFromFile();
+    glPopMatrix();
+    glFlush();
 }

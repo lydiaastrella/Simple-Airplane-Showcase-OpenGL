@@ -1,1 +1,5 @@
-void loadFromFile(void);
+void renderPlane(void);
+
+void renderFromFile();
+
+void drawCartesianLine();
