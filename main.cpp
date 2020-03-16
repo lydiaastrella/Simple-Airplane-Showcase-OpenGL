@@ -7,10 +7,27 @@
 #include <math.h>
 
 static float up_vector[3] = {0.0, 1.0, 0.0};
-static float new_up[3];
+static float *new_up = (float*) malloc(3*sizeof(float));
 static double dist = sqrt(1 / 5.0);
 static void help();
 
+static float* rotateVector(float input[3], float derajat, char axis){
+    float *output = (float*) malloc(3 * sizeof(float));
+    if(axis == 'x'){
+        output[0] = input[0];
+        output[1] = cos(derajat)*input[1] - sin(derajat)*input[2];
+        output[2] = sin(derajat)*input[1] + cos(derajat)*input[2];
+    }else if (axis =='y'){
+        output[0] = cos(derajat)*input[0] + sin(derajat)*input[2];
+        output[1] = input[1];
+        output[2] = -sin(derajat)*input[0] + cos(derajat)*input[2];
+    }else if (axis == 'z'){
+        output[0] = cos(derajat)*input[0] - sin(derajat)*input[1];
+        output[1] = sin(derajat)*input[0] + cos(derajat)*input[1];
+        output[2] = input[2];
+    }
+    return output;
+}
 
 static void key(unsigned char key, int x, int y)
 {
@@ -46,10 +63,8 @@ static void key(unsigned char key, int x, int y)
             break;
             break;
         case '1':
-            //rotate up vector around x axis (10)
-            new_up[0] = up_vector[0];
-            new_up[1] = cos(10)*up_vector[1] - sin(10)*up_vector[2];
-            new_up[2] = sin(10)*up_vector[1] + cos(10)*up_vector[2];
+            //rotate up vector around x axis (10 degree)
+            new_up = rotateVector(up_vector, 10, 'x');
             up_vector[0] = new_up[0];
             up_vector[1] = new_up[1];
             up_vector[2] = new_up[2];
@@ -61,10 +76,8 @@ static void key(unsigned char key, int x, int y)
                     up_vector[0], up_vector[1], up_vector[2]);
             break;
         case '2':
-            //rotate up vector around y axis (10)
-            new_up[0] = cos(10)*up_vector[0] + sin(10)*up_vector[2];
-            new_up[1] = up_vector[1];
-            new_up[2] = -sin(10)*up_vector[0] + cos(10)*up_vector[2];
+            //rotate up vector around x axis (10 degree)
+            new_up = rotateVector(up_vector, 10, 'y');
             up_vector[0] = new_up[0];
             up_vector[1] = new_up[1];
             up_vector[2] = new_up[2];
@@ -76,10 +89,8 @@ static void key(unsigned char key, int x, int y)
                     up_vector[0], up_vector[1], up_vector[2]);
             break;
         case '3':
-            //rotate up vector around z axis (10)
-            new_up[0] = cos(10)*up_vector[0] - sin(10)*up_vector[1] + 0*up_vector[2];
-            new_up[1] = sin(10)*up_vector[0] + cos(10)*up_vector[1] + 0*up_vector[2];
-            new_up[2] = up_vector[2];
+            //rotate up vector around x axis (10 degree)
+            new_up = rotateVector(up_vector, 10, 'z');
             up_vector[0] = new_up[0];
             up_vector[1] = new_up[1];
             up_vector[2] = new_up[2];
