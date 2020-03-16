@@ -88,7 +88,11 @@ static void key(unsigned char key, int x, int y)
                     0.0, 0.0, 0.0,
                     up_vector[0], up_vector[1], up_vector[2]);
             break;
-        
+        case '+':
+            //Zoom in
+            glScalef(1.5, 1.5, 1.5);
+            break;
+
     }
     glutPostRedisplay();
 }
