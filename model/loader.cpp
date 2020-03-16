@@ -53,8 +53,8 @@ void loadFromFile(void) {
 
 void renderPlane() {
     //drawCartesianLine();
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glPushMatrix();
-    glTranslated(0.5, 0.5, 0.5);
     loadFromFile();
     glPopMatrix();
     glFlush();
