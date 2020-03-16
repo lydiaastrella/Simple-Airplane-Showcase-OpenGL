@@ -6,7 +6,7 @@
 #include "model/loader.h"
 #include <math.h>
 
-static float up_vector[3] = {0.0, 0.0, 1.0};
+static float up_vector[3] = {0.0, 1.0, 0.0};
 static float new_up[3];
 static double dist = sqrt(1 / 5.0);
 
@@ -33,8 +33,8 @@ static void key(unsigned char key, int x, int y)
         case 'r':
             //reset
             up_vector[0] = 0.0;
-            up_vector[1] = 0.0;
-            up_vector[2] = 1.0;
+            up_vector[1] = 1.0;
+            up_vector[2] = 0.0;
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glMatrixMode(GL_MATRIX_MODE);
             glLoadIdentity();
