@@ -32,7 +32,17 @@ static void key(unsigned char key, int x, int y)
             break;
         case 'r':
             //reset
+            up_vector[0] = 0.0;
+            up_vector[1] = 0.0;
+            up_vector[2] = 1.0;
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            glMatrixMode(GL_MATRIX_MODE);
             glLoadIdentity();
+            gluLookAt(dist, dist, dist,
+                    0.0, 0.0, 0.0,
+                    up_vector[0], up_vector[1], up_vector[2]);
+            break;
+            break;
         case '1':
             //rotate up vector around x axis (10)
             new_up[0] = up_vector[0];
