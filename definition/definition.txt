@@ -1,0 +1,75 @@
+# File ini digunakan untuk mendefinisikan titik titik yang akan digunakan di dalam bidang kartesian
+# Untuk setiap kalimat yang dimulai dengan `HashTag` (#) menandakan sebuah komentar, sehingga akan 
+# diabaikan dalam proses compile.
+# Untuk format penulisan adalah sebagai berikut.
+# 1. Untuk membuat sebuah poligon, pembacaan akan dimulai dengan ditemukannya tanda {
+# 2. Setelah tanda tersebut, baris berikutnya, anda harus mendefinisikan 3 buah angka (dalam float)
+#    yang akan dibaca oleh program sebagai warna dari poligon yang ingin anda buat. format warna 
+#    dalam RGB
+# 3. Setelah itu, pada baris baris selanjutnya, silahkan definisikan titik titik yang ingin dibuat
+#    dalam bidang kartesian, dengan format x y z. 
+# 4. Akhiri pembuatan Poligon dengan menggunakan } pada baris berikutnya
+
+# Contoh:
+# {
+# 0.5 0.5 0.5
+# 0 0 0
+# 0 1 0
+# 1 1 0
+# 1 0 1
+# }
+
+# maka akan menghasilkan sebuah kubus
+
+# Silahkan buat definisi anda di bawah ini
+
+# ------------------------------------------------------------------------------------------------
+
+# Body
+{
+0 0 0
+1 1 1
+1 1 -1
+1 -1 -1
+1 -1 1
+}
+
+{
+1 0 0
+1 1 1
+1 1 -1
+-1 1 -1
+-1 1 1
+}
+
+{
+0 1 0
+1 1 1
+1 -1 1
+-1 -1 1
+-1 1 1
+}
+
+{
+0 0 1
+1 -1 1
+1 -1 -1
+-1 -1 -1
+-1 -1 1
+}
+
+{
+1 1 0
+-1 1 1
+-1 1 -1
+-1 -1 -1
+-1 -1 1
+}
+
+{
+1 0 1
+1 1 -1
+1 -1 -1
+-1 -1 -1
+-1 1 -1
+}
