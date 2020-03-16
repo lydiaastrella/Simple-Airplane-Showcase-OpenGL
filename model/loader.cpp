@@ -16,7 +16,6 @@ void loadFromFile(void) {
                 definitionFile >> color[0] >> color[1] >> color[2];
                 glColor3f(color[0], color[1], color[2]);
                 while (getline(definitionFile, str)) {
-                    printf("%s\n", str.c_str());
                     if (str[0] == '}') {
                         glEnd();
                         break;
