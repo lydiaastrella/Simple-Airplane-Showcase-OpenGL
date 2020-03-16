@@ -92,6 +92,10 @@ static void key(unsigned char key, int x, int y)
             //Zoom in
             glScalef(1.5, 1.5, 1.5);
             break;
+        case '-':
+            //Zoom out
+            glScalef(0.5, 0.5, 0.5);
+            break;
 
     }
     glutPostRedisplay();
