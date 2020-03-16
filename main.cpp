@@ -6,8 +6,7 @@
 #include "model/loader.h"
 #include <math.h>
 
-static float up_vector[3] = {0.0, 1.0, 0.0};
-static float *new_up = (float*) malloc(3*sizeof(float));
+static float *up_vector = (float*) malloc(3*sizeof(float));
 static double dist = sqrt(1 / 5.0);
 static void help();
 
@@ -64,10 +63,7 @@ static void key(unsigned char key, int x, int y)
             break;
         case '1':
             //rotate up vector around x axis (10 degree)
-            new_up = rotateVector(up_vector, 10, 'x');
-            up_vector[0] = new_up[0];
-            up_vector[1] = new_up[1];
-            up_vector[2] = new_up[2];
+            up_vector = rotateVector(up_vector, 10, 'x');
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glMatrixMode(GL_MATRIX_MODE);
             glLoadIdentity();
@@ -77,10 +73,7 @@ static void key(unsigned char key, int x, int y)
             break;
         case '2':
             //rotate up vector around x axis (10 degree)
-            new_up = rotateVector(up_vector, 10, 'y');
-            up_vector[0] = new_up[0];
-            up_vector[1] = new_up[1];
-            up_vector[2] = new_up[2];
+            up_vector = rotateVector(up_vector, 10, 'y');
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glMatrixMode(GL_MATRIX_MODE);
             glLoadIdentity();
@@ -90,10 +83,7 @@ static void key(unsigned char key, int x, int y)
             break;
         case '3':
             //rotate up vector around x axis (10 degree)
-            new_up = rotateVector(up_vector, 10, 'z');
-            up_vector[0] = new_up[0];
-            up_vector[1] = new_up[1];
-            up_vector[2] = new_up[2];
+            up_vector = rotateVector(up_vector, 10, 'z');
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glMatrixMode(GL_MATRIX_MODE);
             glLoadIdentity();
@@ -159,6 +149,9 @@ static void help()
 
 int main(int argc, char *argv[])
 {
+    up_vector[0] = 0.0;
+    up_vector[1] = 1.0;
+    up_vector[2] = 0.0;
     glutInit(&argc, argv);
     glutInitWindowSize(640,480);
     glutInitWindowPosition(10,10);
